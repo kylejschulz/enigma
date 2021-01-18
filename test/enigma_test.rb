@@ -2,7 +2,6 @@ require 'minitest/autorun'
 require 'minitest/pride'
 require 'date'
 require './lib/enigma'
-require './lib/engima'
 class EngimaTest < Minitest::Test
   def setup
     @enigma = Enigma.new
@@ -13,7 +12,7 @@ class EngimaTest < Minitest::Test
   end
 
   def test_it_can_encrypt
-    skip
+    
     expected = {
                 encryption: "keder ohulw",
                 key: "02715",
@@ -45,7 +44,7 @@ class EngimaTest < Minitest::Test
   end
 
   def test_encrypt_a_message_generates_random_key_and_uses_todays_date
-    skip 
+    skip
     @enigma.encrypt("hello world")
   end
 end
