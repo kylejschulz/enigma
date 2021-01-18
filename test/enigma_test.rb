@@ -1,7 +1,5 @@
-require 'minitest/autorun'
-require 'minitest/pride'
-require 'date'
-require './lib/enigma'
+require_relative 'test_helper'
+
 class EngimaTest < Minitest::Test
   def setup
     @enigma = Enigma.new
@@ -11,8 +9,8 @@ class EngimaTest < Minitest::Test
     assert_instance_of Enigma, @enigma
   end
 
-  def test_it_can_encrypt
-    
+  def test_it_can_encrypt_and_return_hash
+
     expected = {
                 encryption: "keder ohulw",
                 key: "02715",
@@ -44,6 +42,8 @@ class EngimaTest < Minitest::Test
   end
 
   def test_encrypt_a_message_generates_random_key_and_uses_todays_date
+    #use mocks and stubs here
+
     skip
     @enigma.encrypt("hello world")
   end

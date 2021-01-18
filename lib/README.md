@@ -1,4 +1,3 @@
-setup simple cov
 
 
 i need a module that validates data

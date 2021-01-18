@@ -40,7 +40,6 @@ class Decrypt
       decrypted_string = ''
       string.split('').each do |char|
         if counter == 0
-
           decrypted_string += decrypt_letter(char, total_shift[0])
         elsif counter == 1
           decrypted_string += decrypt_letter(char, total_shift[1])

@@ -28,7 +28,6 @@ class Encrypt
   end
 
   def rotate_letter(letter, shift)
-    require "pry"; binding.pry
     if letter != '\n'
       alphabet_letter_with_index = @alphabet.each_with_index.select do |alphabet_letter, index|
         alphabet_letter == letter
