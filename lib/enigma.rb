@@ -1,24 +1,35 @@
 require 'time'
-
+require_relative 'data_parse_module'
+require_relative 'encrypt_decrypt_module'
 class Enigma
   include DataParse
   include EncryptDecrypt
-  attr_accessor :hash
+  attr_accessor :string,
+                :key,
+                :date
   def initialize
-    @hash = Hash.new
+    @string = ''
+    @key = ''
+    @date = ''
     @alphabet = ("a".."z").to_a << " "
   end
 
 
   def encrypt(string, arg2 = '', arg3 = '')
-    sanitize_encrypt
+    sanitize_encrypt(string, arg2, arg3)
+    hash = Hash.new
+    hash[:encryption] = encrypt_string
+    hash[:key] = @key
+    hash[:date] = @date
+    hash
   end
 
-  def date_gen
-     Time.now.strftime('%m%d%y')
-  end
-
-  def decrypt(string, key, date = date_gen)
-    sanitize_decrypt
+  def decrypt(string, key, date = '')
+    sanitize_decrypt(string, key, date )
+    hash = Hash.new
+    hash[:decryption] = decrypt_string
+    hash[:key] = @key
+    hash[:date] = @date
+    hash
   end
 end

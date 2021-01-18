@@ -1,6 +1,4 @@
 require 'enigma'
-require 'encrypt'
-require 'decrypt'
 
 handle = File.open(ARGV[0], 'r')
 

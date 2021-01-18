@@ -10,7 +10,6 @@ class EngimaTest < Minitest::Test
   end
 
   def test_it_can_encrypt_and_return_hash
-
     expected = {
                 encryption: "keder ohulw",
                 key: "02715",
@@ -21,7 +20,6 @@ class EngimaTest < Minitest::Test
   end
 
   def test_it_can_decrypt
-    skip
     expected = {
                 decryption: "hello world",
                 key: "02715",
@@ -32,19 +30,33 @@ class EngimaTest < Minitest::Test
   end
 
   def test_encrypt_a_message_with_a_key_using_todays_date
-    skip
-    assert_equal expected, @encrypted = enigma.encrypt("hello world", "02715")
+    expected = {
+                encryption: "pefaw qdzly",
+                key: "02715",
+                date: "011821"
+                }
+
+    assert_equal expected, @enigma.encrypt("hello world", "02715")
   end
 
   def test_decrypt_a_message_with_a_key_using_todays_date
-    skip
-    assert_equal expected, @enigma.decrypt(encrypted[:encryption], "02715")
+    expected = {
+                decryption: "hello world",
+                key: "02715",
+                date: "011821"
+                }
+    assert_equal expected, @enigma.decrypt('pefaw qdzly', "02715")
   end
 
   def test_encrypt_a_message_generates_random_key_and_uses_todays_date
-    #use mocks and stubs here
+    expected = {
+                encryption: "ahgudnesi",
+                key: "02715",
+                date: "011821"
+                }
+    encryption = mock
+    encryption.stubs(:encrypt).returns(expected).with('hey there')
 
-    skip
-    @enigma.encrypt("hello world")
+    assert_equal expected, encryption.encrypt('hey there')
   end
 end
