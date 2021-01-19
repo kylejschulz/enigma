@@ -149,5 +149,7 @@ class EngimaTest < Minitest::Test
     encryption.stubs(:encrypt).returns(expected).with('hey there')
 
     assert_equal expected, encryption.encrypt('hey there')
+    assert_equal 5, encryption.encrypt('hey there')[:key].length
+    assert_equal 6, encryption.encrypt('hey there')[:date].length
   end
 end

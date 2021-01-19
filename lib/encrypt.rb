@@ -1,4 +1,5 @@
 require_relative './enigma'
+# ruby lib/encrypt.rb little_brother.txt just_encrypted.txt
 
 @enigma = Enigma.new
 handle = File.open(ARGV[0], 'r')

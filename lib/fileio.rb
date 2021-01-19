@@ -21,12 +21,6 @@ class FileIO
     open_handle.close
   end
 
-  def open_read_close
-    open_handle
-    read_handle
-    close_handle
-  end
-
   def open_writer
     File.open(@write, 'w')
   end

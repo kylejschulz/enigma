@@ -14,11 +14,15 @@ module DataParse
     elsif arg2.length == 5
       @key = arg2
       @date = date_gen
-    else #arg2.length == 6
+    elsif arg2.length == 6
       @date = arg2
       @key = random_five
+    else
+      @key = random_five
+      @date = date_gen
     end
       @string = string.downcase.strip
+
   end
 
   def sanitize_decrypt(string, key, date)
