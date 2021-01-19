@@ -1,4 +1,4 @@
-require 'enigma'
+require_relative 'enigma'
 class FileIO
   attr_reader :read, :write, :key, :date
   def initialize(read, write, key = '', date = '')
@@ -7,7 +7,6 @@ class FileIO
     @key = key
     @date = date
     @enigma = Enigma.new
-
   end
 
   def open_handle
@@ -29,7 +28,7 @@ class FileIO
   end
 
   def  write_writer
-    writer.write(#)
+    writer.write()
   end
 
   def close_writer
