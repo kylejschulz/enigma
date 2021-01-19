@@ -13,16 +13,16 @@ class FileIO
     File.open(@read, 'r')
   end
 
-  # def read_handle
-  #   handle.read.downcase
-  # end
+  def read_handle
+    open_handle.read.strip.downcase 
+  end
   #
   # def close_handle
   #   handle.close
   # end
   #
   # #encrypt or decrypt
-  # 
+  #
   # def open_writer
   #   File.open(write, 'w')
   # end
