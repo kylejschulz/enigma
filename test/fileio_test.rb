@@ -19,8 +19,16 @@ class FileIOTest < Minitest::Test
     assert_instance_of Enigma, @fileio.enigma
   end
 
-  def test_it_can_open_handle
-    expected = 'One morning I woke up'
-    assert_equal expected, @fileio.open_handle 
+  def test_it_can_open_handle_and_returns_file_object
+    assert_equal File, @fileio.open_handle.class
   end
+
+  def test_it_can_read_handle
+    expected = 'One morning I woke up'
+    @fileio.open_handle
+
+    assert_equal File, @fileio.read_handle 
+  end
+
+
 end
