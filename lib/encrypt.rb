@@ -1,16 +1,13 @@
 require_relative './enigma'
-require_relative 'fileio'
-# ruby lib/encrypt.rb little_brother.txt just_encrypted.txt
 
-@fileio = FileIO.new(ARGV[0], ARGV[1])
+@enigma = Enigma.new
+handle = File.open(ARGV[0], 'r')
 
-a = @fileio.open_handle
-b = @fileio.read_handle
-c = @fileio.close_handle
-encryption = @fileio.enigma.encrypt(b)
-f = @fileio.open_writer
-g = @fileio.write_writer(encryption)
-h = @fileio.close_writer
+text_to_encrypt = handle.read.downcase.strip.chomp
+handle.close
 
-
-puts "Created '#{ARGV[1]}' with the key #{encryption[:key]} and date #{encryption[:date]}"
+encrypted_text = @enigma.encrypt(text_to_encrypt)
+writer = File.open(ARGV[1], 'w')
+writer.write(encrypted_text)
+writer.close
+puts "Created '#{ARGV[1]}' with the key #{encrypted_text[:key]} and date #{encrypted_text[:date]}"
