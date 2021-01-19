@@ -37,7 +37,7 @@ module EncryptDecrypt
         decrypted_string += decrypt_letter(char, total_shift[1])
       elsif counter == 2
         decrypted_string += decrypt_letter(char, total_shift[2])
-      else counter == 3
+      else #counter == 3
         decrypted_string += decrypt_letter(char, total_shift[3])
       end
       counter += 1
@@ -59,7 +59,7 @@ module EncryptDecrypt
         encrypted_string += encrypt_letter(char, total_shift[1])
       elsif counter == 2
         encrypted_string += encrypt_letter(char, total_shift[2])
-      else counter == 3
+      else #counter == 3
         encrypted_string += encrypt_letter(char, total_shift[3])
       end
       counter += 1
@@ -71,12 +71,12 @@ module EncryptDecrypt
   end
 
   def keys_array
-    string = @key.split('').each_cons(2).map do |x|
-      x.join
+    @key.split('').each_cons(2).map do |x|
+      x.join.to_i
     end
-    to_int = string.map do |string|
-      string.to_i
-    end
+    # string.map do |string|
+    #   string.to_i
+    # end
   end
 
   def offsets_array

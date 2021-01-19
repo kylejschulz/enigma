@@ -6,7 +6,8 @@ class Enigma
   include EncryptDecrypt
   attr_accessor :string,
                 :key,
-                :date
+                :date,
+                :alphabet
   def initialize
     @string = ''
     @key = ''
