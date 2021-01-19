@@ -2,4 +2,6 @@ I think a 3.0 on functionality is appropriate. I think the functionality works v
 
 I think 2.67 is appropriate for OOP. I built out and tried to implement a fileio class to factor out and clean up my decrypt and encrypt CLI functionality but wasn't able to get it to work. I was able to integrate two modules to clean up my enigma class, but didn't feel a superclass was obvious enough so i didn't use inheritance. The modules are based on parsing data from the user to make it useable to the program, and then the nuts and bolts of the actual shift methods. the methods are similar enough that i should have been able to factor them down from four to two but couldn't quite grasp how to make it work.
 
-I think i was able to use modules to not make my class excessively long. I think the code is mostly readable and things have been named appropriately.  
+I think 2.75 for ruby conventions is appropriate. I was able to use modules to not make my class excessively long. I think the code is mostly readable and things have been named appropriately.  i've taken care of whitespace and my indentation is proper. I've used appropriate enums. My hashes are implemented in a way that makes logical sense.
+
+I think 2.75 for TDD is appropriate. I did use mocks and stubs but not in as many places as i would have liked. There were some occasions when i got stuck where i drifted from TDD and played in a sandbox to experiment on where i needed to go. All of the functionality of each method is tested. I'm at 100% coverage and i've addressed all obvious edge cases.
