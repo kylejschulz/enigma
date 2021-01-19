@@ -1,7 +1,11 @@
 require_relative './enigma'
 
-@enigma = Enigma.new
-handle = File.open(ARGV[0], 'r')
+@fileio = FileIO.new(ARGV[0], ARGV[1])
+
+@fileio.open_read_close
+@fileio.enigma.encrypt(@fileio.read_handle)
+@fileio.open_writer 
+
 
 text_to_encrypt = handle.read.downcase.strip.chomp
 handle.close

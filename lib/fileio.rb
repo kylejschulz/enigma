@@ -21,7 +21,11 @@ class FileIO
     open_handle.close
   end
 
-  #encrypt or decrypt
+  def open_read_close
+    open_handle
+    read_handle
+    close_handle
+  end
 
   def open_writer
     File.open(@write, 'w')
@@ -32,7 +36,6 @@ class FileIO
   end
 
   def close_writer
-    writer.close
+    open_writer.close
   end
-# encrypted_text = @enigma.encrypt(text_to_encrypt)
 end
