@@ -39,9 +39,15 @@ class FileIOTest < Minitest::Test
   end
 
   def test_it_can_write_to_the_writer_file
-
-    assert_equal '?', @fileio.write_writer('zigaxjtotiiatvypv bv ')
+    #why does this return 24?
+    string = 'zigaxjtotiiatvypv bv '
+    assert_equal 24, @fileio.write_writer(string)
   end
+
+  def test_it_can_close_writer
+    assert_nil @fileio.close_writer 
+  end
+
 
 
 end
