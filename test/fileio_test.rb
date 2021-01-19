@@ -24,10 +24,14 @@ class FileIOTest < Minitest::Test
   end
 
   def test_it_can_read_handle
-    expected = 'One morning I woke up'
+    expected = 'one morning i woke up'
     @fileio.open_handle
 
-    assert_equal File, @fileio.read_handle 
+    assert_equal expected, @fileio.read_handle
+  end
+
+  def test_it_can_close_handle
+    assert_equal '?', @fileio.close_handle 
   end
 
 
