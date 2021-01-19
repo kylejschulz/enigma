@@ -30,9 +30,9 @@ class FileIO
   def  write_writer(encryption_or_decryption)
     open_writer.write()
   end
-  #
-  # def close_writer
-  #   writer.close
-  # end
+
+  def close_writer
+    writer.close
+  end
 # encrypted_text = @enigma.encrypt(text_to_encrypt)
 end
