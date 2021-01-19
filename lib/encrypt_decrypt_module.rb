@@ -18,7 +18,6 @@ module EncryptDecrypt
     @alphabet[unshift_by]
   end
 
-
   def encrypt_letter(letter, shift)
     alphabet_letter_with_index = @alphabet.each_with_index.select do |alphabet_letter, index|
       alphabet_letter == letter

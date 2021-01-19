@@ -1,0 +1,5 @@
+I think a 3.0 on functionality is appropriate. I think the functionality works very well and the most obvious edge cases were taken into account. i was not able to account for '\n' suntax in multi line code although i did spend a bit of time trying to work through it.
+
+I think 2.67 is appropriate for OOP. I built out and tried to implement a fileio class to factor out and clean up my decrypt and encrypt CLI functionality but wasn't able to get it to work. I was able to integrate two modules to clean up my enigma class, but didn't feel a superclass was obvious enough so i didn't use inheritance. The modules are based on parsing data from the user to make it useable to the program, and then the nuts and bolts of the actual shift methods. the methods are similar enough that i should have been able to factor them down from four to two but couldn't quite grasp how to make it work.
+
+I think i was able to use modules to not make my class excessively long. I think the code is mostly readable and things have been named appropriately.  
