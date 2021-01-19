@@ -26,10 +26,10 @@ class FileIO
   def open_writer
     File.open(@write, 'w')
   end
-  #
-  # def  write_writer
-  #   writer.write()
-  # end
+
+  def  write_writer(encryption_or_decryption)
+    open_writer.write()
+  end
   #
   # def close_writer
   #   writer.close
