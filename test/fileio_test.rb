@@ -38,5 +38,10 @@ class FileIOTest < Minitest::Test
       assert_equal File, @fileio.open_writer.class
   end
 
+  def test_it_can_write_to_the_writer_file
+
+    assert_equal '?', @fileio.write_writer('zigaxjtotiiatvypv bv ')
+  end
+
 
 end
