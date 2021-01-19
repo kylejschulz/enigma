@@ -30,8 +30,12 @@ class FileIOTest < Minitest::Test
     assert_equal expected, @fileio.read_handle
   end
 
-  def test_it_can_close_handle
-    assert_equal '?', @fileio.close_handle 
+  def test_it_can_close_handle_and_it_returns_nil
+    assert_nil @fileio.close_handle
+  end
+
+  def test_it_can_open_writer_file_and_returns_file_object
+      assert_equal File, @fileio.open_writer.class
   end
 
 
