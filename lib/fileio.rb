@@ -14,18 +14,18 @@ class FileIO
   end
 
   def read_handle
-    open_handle.read.strip.downcase 
+    open_handle.read.strip.downcase
   end
-  #
-  # def close_handle
-  #   handle.close
-  # end
-  #
-  # #encrypt or decrypt
-  #
-  # def open_writer
-  #   File.open(write, 'w')
-  # end
+
+  def close_handle
+    open_handle.close
+  end
+
+  #encrypt or decrypt
+
+  def open_writer
+    File.open(@write, 'w')
+  end
   #
   # def  write_writer
   #   writer.write()
