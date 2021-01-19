@@ -14,11 +14,8 @@ module DataParse
     elsif arg2.length == 5
       @key = arg2
       @date = date_gen
-    elsif arg2.length == 6
+    else #arg2.length == 6
       @date = arg2
-      @key = random_five
-    else
-      @date = date_gen
       @key = random_five
     end
       @string = string.downcase.strip

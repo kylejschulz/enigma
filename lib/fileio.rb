@@ -1,13 +1,39 @@
 require 'enigma'
+class FileIO
+  attr_reader :read, :write, :key, :date
+  def initialize(read, write, key = '', date = '')
+    @read = read
+    @write = write
+    @key = key
+    @date = date
+    @enigma = Enigma.new
 
-handle = File.open(ARGV[0], 'r')
+  end
 
-text_to_encrypt = handle.read.downcase
-handle.close
-@enigma = Enigma.new
+  def open_handle
+    File.open(@read, 'r')
+  end
 
-encrypted_text = @enigma.encrypt(text_to_encrypt)
+  def read_handle
+    handle.read.downcase
+  end
 
-writer = File.open(ARGV[1], 'w')
-writer.write(encrypted_text.txt)
-writer.close
+  def close_handle
+    handle.close
+  end
+
+  #encrypt or decrypt
+
+  def open_writer
+    File.open(write, 'w')
+  end
+
+  def  write_writer
+    writer.write(#)
+  end
+
+  def close_writer
+    writer.close
+  end
+# encrypted_text = @enigma.encrypt(text_to_encrypt)
+end

@@ -20,9 +20,9 @@ class EngimaTest < Minitest::Test
   end
 
   def test_calling_encrypt_assigns_values
-    # enigma_1 = Enigma.new
     @enigma.encrypt("hello world", "02715", "040895")
 
+    assert_equal 'hello world', @enigma.string
     assert_equal "02715", @enigma.key
     assert_equal "040895", @enigma.date
     assert_equal (("a".."z").to_a << " "), @enigma.alphabet
@@ -31,6 +31,7 @@ class EngimaTest < Minitest::Test
   def test_calling_decrypt_assigns_values
     @enigma.decrypt("keder ohulw", "02715", "040895")
 
+    assert_equal "keder ohulw", @enigma.string
     assert_equal "02715", @enigma.key
     assert_equal "040895", @enigma.date
     assert_equal (("a".."z").to_a << " "), @enigma.alphabet
@@ -53,6 +54,22 @@ class EngimaTest < Minitest::Test
 
     assert_equal [3, 27, 73, 20], @enigma.total_shift
   end
+
+  def test_random_five_returns_random_number
+    enigma = mock
+    enigma.stubs(:random_five).returns('04781')
+    assert_equal '04781', enigma.random_five
+  end
+
+  def test_given_no_key_it_will_generate_one
+    expected = {
+                date: "040895"
+                }
+
+    assert_equal expected[:date], @enigma.encrypt("hello world", "040895")[:date]
+  end
+
+
 
   def test_encrypt_can_shift_a_letter
     @enigma.encrypt("hello world", "02715", "040895")
@@ -82,11 +99,6 @@ class EngimaTest < Minitest::Test
     assert_equal 'r', @enigma.decrypt_letter('u', 3)
     assert_equal 'l', @enigma.decrypt_letter('l', 27)
     assert_equal 'd', @enigma.decrypt_letter('w', 73)
-  end
-
-  def test_it_can_encrypt_entire_string
-    skip
-    assert_equal "keder ohulw", @enigma.encrypt_string
   end
 
   def test_it_can_decrypt
